@@ -47,3 +47,5 @@ To reload the preferred preset, start EasyEffects and run `easyeffects -l MacBoo
 Enabled a user XDG login autostart entry using `audio/enable-login-startup.sh` and `audio/start-speaker-effects.sh`. It starts EasyEffects service mode and restores the approved preset with processing enabled when an analog speaker port is active; otherwise it bypasses processing. The check is made at startup only; later headphone switching is not handled by this script. Install the preset in the output directory first.
 
 Manual startup path passed: CLI reports Balanced Bass and bypass disabled, with physical speaker routing through effects. Next-login startup remains untested. Remove `~/.config/autostart/macbook-speaker-effects.desktop` to disable automatic launch. This supersedes earlier notes saying startup was not configured.
+
+Reboot check found old preset/bypass restored despite startup. Startup now waits for the physical device and retries/validates the approved preset, using JSON sink inspection. Corrected manual execution passed; next-login behavior of this correction remains pending.
