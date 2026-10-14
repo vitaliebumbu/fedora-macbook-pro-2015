@@ -17,3 +17,11 @@ User requested a warmer alternative. Created `audio/MacBook-Warm-Music.json` and
 The four bell bands are 180 Hz +2 dB, 450 Hz +0.5 dB, 3 kHz -0.75 dB, and 8 kHz -1.5 dB, with -3 dB input headroom. The intention is modest lower-mid warmth and softer treble, without boosting sub-bass. This is a subjective starting point, not measured speaker calibration or a hardware protection system.
 
 Copy the JSON into `~/.local/share/easyeffects/output/`, start EasyEffects, and load `MacBook-Warm-Music`. Compare with bypass at similar perceived loudness. Run `easyeffects --bypass 1` to bypass, `easyeffects --bypass 2` to enable processing, or quit EasyEffects to restore direct playback. Use this preset only for the built-in speakers; headphones may need different tuning.
+
+## Warm Smooth — compact-speaker-inspired audition
+
+Loaded `audio/MacBook-Warm-Smooth.json` at the user's request for a Sonos-like tonal balance. This is an original subjective preset, not Sonos calibration or a claim to reproduce its acoustic response.
+
+Chain: Warm Music's modest EQ with -4 dB input headroom, gentle downward compression (-18 dB threshold, 1.6:1 ratio, 25 ms attack, 150 ms release, +1.5 dB makeup), then a stereo-linked -1 dB limiter with automatic gain boost disabled. No deep-bass boost or stereo widening. The limiter limits digital peaks; it is not physical speaker protection.
+
+Preset load and stereo EQ → compressor → limiter routing verified. Listening acceptance, loudness matching, and distortion measurement remain pending. No autostart configured. Restore `MacBook-Warm-Music` or bypass processing for comparison.

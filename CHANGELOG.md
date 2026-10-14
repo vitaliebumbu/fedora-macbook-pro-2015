@@ -90,3 +90,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Corrected temporary dependency downgrades from release-only metadata by upgrading affected packages from updates.
 
 - Added and loaded Warm Music speaker preset at user request; stereo EQ routing verified, subjective listening feedback pending. No autostart or volume boost.
+
+- Added Warm Smooth preset: modest warm EQ, light compression, final -1 dB limiter; loaded and verified stereo routing. Subjective compact-speaker-inspired audition, no claimed Sonos calibration; listening feedback pending.
