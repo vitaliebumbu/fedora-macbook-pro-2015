@@ -35,3 +35,7 @@ Preset selection and stereo routing through bass enhancement, compressor, and li
 ## Bass Plus audition
 
 The initial bass variant was not noticeably different to the listener. Firefox routing through all effects was confirmed. Loaded `MacBook-Warm-Smooth-Bass-Plus`: 160 Hz +4 dB bell, -6 dB EQ headroom, bass enhancer amount 0 dB and scope 200 Hz, enhancer output 0 dB. Compressor and limiter retained. Previous presets retained; no physical volume or autostart change. New listening and distortion checks pending.
+
+## Warm Smooth Balanced Bass audition
+
+Loaded `MacBook-Warm-Smooth-Balanced-Bass` for a compromise between Warm Smooth and Bass Plus. Uses a 160 Hz +3 dB bell with -5.5 dB EQ input headroom; gentle bass enhancement amount -3 dB, scope 180 Hz, output -0.5 dB. Other EQ bands, compressor and limiter retained. Previous presets remain available. No output-volume or autostart change. Preset selection and stereo routing verified; subjective acceptance and distortion measurement pending. This is subjective tuning, not measured Sonos calibration.

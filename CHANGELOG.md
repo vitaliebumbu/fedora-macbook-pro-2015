@@ -99,3 +99,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Verified preset loading and stereo processing chain; listening acceptance pending. No output-volume increase or autostart.
 
 - Added Bass Plus audition after initial bass change was not noticeable; verified Firefox processing path. Listening validation pending.
+
+- Added Warm Smooth Balanced Bass as a moderate compromise between the smooth and stronger bass auditions; previous presets retained. Listening acceptance pending.
