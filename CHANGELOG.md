@@ -59,3 +59,9 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Documented codec/frame-rate tradeoffs and rollback. Same-video H.264 confirmation and thermal comparison remain pending.
 
 - User screenshot confirmed YouTube switched to H.264 at 720p/30 fps; observed 70 C panel reading. Recorded comparison limitations without publishing personal screenshot content.
+
+### Parsec decoder inspection
+
+- Confirmed existing i965 hardware decoding and FFmpeg 4 compatibility library, with H.265/10-bit/4:4:4 off.
+- No decoder configuration change was needed. Documented recurring historical decoder failures and remaining stream diagnostics.
+- Excluded private session/account data and logs from publication.

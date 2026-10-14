@@ -17,6 +17,7 @@ These files document one workstation. Apply the sections you need after reviewin
 | Cooling | [Fan settings and mbpfan](docs/fans.md) |
 | Packages | [DNF, RPM Fusion free/nonfree, and codecs](docs/packages.md) |
 | Firefox | [Restore previous windows and tabs](docs/firefox.md) |
+| Remote desktop | [Parsec hardware decoding and stream diagnostics](docs/parsec.md) |
 | Performance | [Video, battery, and suspend checks](docs/performance-checks.md) |
 | Storage | [Automatic temporary-file and cache cleanup](docs/storage.md) |
 | Status | [Recorded changes and verification limits](CHANGELOG.md) |
