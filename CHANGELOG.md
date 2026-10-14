@@ -52,3 +52,8 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Identified YouTube AV1 software decoding on Haswell.
 - Confirmed H.264 test format and observed Firefox RDD loading Intel i965 and opening the GPU render device across four samples.
 - Retained current Firefox preferences; no video saved to disk.
+
+### YouTube codec preference
+
+- User installed enhanced-h264ify v2.2.1; Firefox reports extension active.
+- Documented codec/frame-rate tradeoffs and rollback. Same-video H.264 confirmation and thermal comparison remain pending.

@@ -35,3 +35,11 @@ YouTube Stats for nerds showed AV1 (`av01`) at 1280x720/30 fps, with 81 dropped 
 Opened the [MDN sample video](https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4) in the running Firefox; ffprobe confirmed H.264. Across four process inspections, RDD had loaded `i965_drv_video.so` and opened `/dev/dri/renderD128`, providing evidence that the hardware-decoding path engaged for the supported codec. No Firefox settings were changed and no video was downloaded to disk. This is process-level evidence, not a GPU engine utilization benchmark.
 
 For YouTube, selecting H.264 using a compatible codec-selection extension is an optional next step; it can reduce available resolution and requires a separate playback test. Installing a newer driver cannot add AV1 decoding hardware to this GPU.
+
+## YouTube H.264 preference extension
+
+Installed [enhanced-h264ify](https://addons.mozilla.org/en-US/firefox/addon/enhanced-h264ify/) v2.2.1 and confirmed Firefox reports it active. Its default codec blocking prefers H.264 and blocks 60 fps video; adjust options if that tradeoff is unwanted. It operates on YouTube-related domains.
+
+Reload existing YouTube video tabs after installation. Stats for nerds should show `avc1` for H.264. Firefox's RDD process still had the Intel driver and GPU device open after installation, but those resources may remain from the earlier H.264 sample; this alone does not establish the new YouTube stream's codec or prove a temperature improvement. Same-video codec and power comparison remain pending.
+
+Disable or remove the extension in `about:addons` to undo. Higher-resolution YouTube formats may become unavailable when preferring H.264.
