@@ -8,3 +8,11 @@
 - EasyEffects startup did not restore approved sound: old Warm Music and bypass on. Updated startup to wait for physical speaker device, parse sink JSON instead of a shell pipeline, and retry/verify preset+bypass. Manual corrected path reports Balanced Bass/bypass2; next reboot remains pending.
 - Bluetooth controller reset timeout -110 after boot. Reloading btusb did not recover it. Targeted USB reset of05ac:8290 returned success; Controller available. No permanent Bluetooth recovery change applied; pairing/audio not tested.
 - Reboot persistence is verified for listed settings, not every application/hardware behavior. Actual playback, mouse feel, Bluetooth pairing and battery reporting are not established by config checks.
+
+## Second reboot verification — 2026-10-14
+
+- Systemd startup15.268s; firmware/visible desktop timing excluded.
+- Corrected EasyEffects login startup passed: MacBook-Warm-Smooth-Balanced-Bass selected, bypass2 (processing enabled). Supersedes pending startup verification for this fix.
+- Bluetooth controller available; recovery timer enabled/active and first boot check exited0. No reset was required this boot, so real automatic fault recovery remains untested.
+- Wi-Fi connected with power saving off; gascroll library mapped in GNOME Shell. Saved WhiteSur cursor and touchpad speed -0.15 retained.
+- No configuration changes required. Playback quality/pairing/physical scrolling not exercised by these checks.

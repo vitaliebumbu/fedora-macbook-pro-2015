@@ -116,3 +116,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Recorded reboot persistence checks and corrected speaker startup device-readiness handling. Bluetooth reset timeout found; manual module reload/USB reset attempted, permanent recovery pending.
 
 - Added bounded automatic Bluetooth recovery for missing05ac:8290 controller,45s after boot/every2min. Healthy check and simulated one-reset recovery passed; real future failure recovery pending.
+
+- Second reboot confirmed approved audio preset/bypass restored automatically, Bluetooth controller present and recovery timer successful without reset, Wi-Fi connected and scrolling library loaded.
