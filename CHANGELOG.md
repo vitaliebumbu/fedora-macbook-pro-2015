@@ -103,3 +103,8 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Added Warm Smooth Balanced Bass as a moderate compromise between the smooth and stronger bass auditions; previous presets retained. Listening acceptance pending.
 
 - User approved Warm Smooth Balanced Bass as the preferred built-in speaker preset on 2026-10-14. Recorded manual reload steps; automatic startup remains unconfigured.
+
+### Touchpad scrolling — 2026-10-14
+
+- Installed user-local gascroll workaround, filtered to bcm5974 at factor0.50. Preserved source/MIT license and added install/rollback documentation.
+- Build, configuration live-reload self-test and unit environment verified. Logout/login activation and physical scrolling testing pending. Existing natural scrolling/pointer settings retained.
