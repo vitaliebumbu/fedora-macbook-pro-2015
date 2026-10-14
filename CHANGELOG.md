@@ -97,3 +97,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 
 - Added Warm Smooth Bass with a modest 130 Hz lift, harmonic bass enhancement, and extra input headroom. Retained previous presets.
 - Verified preset loading and stereo processing chain; listening acceptance pending. No output-volume increase or autostart.
+
+- Added Bass Plus audition after initial bass change was not noticeable; verified Firefox processing path. Listening validation pending.

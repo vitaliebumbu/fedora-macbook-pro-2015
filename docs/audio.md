@@ -31,3 +31,7 @@ Preset load and stereo EQ → compressor → limiter routing verified. Listening
 Loaded `audio/MacBook-Warm-Smooth-Bass.json` for fuller perceived bass. Both channels use a 130 Hz +2.5 dB bell with -5 dB EQ input headroom. Gentle harmonic bass enhancement follows the EQ (amount -6 dB, harmonics 3, scope 160 Hz, floor 80 Hz enabled, output -1 dB), followed by the existing compressor and limiter.
 
 Preset selection and stereo routing through bass enhancement, compressor, and limiter verified. Listening quality and distortion remain untested. Small speakers cannot reproduce deep sub-bass through EQ alone. Output volume and autostart were unchanged. Load `MacBook-Warm-Smooth` to restore the previous audition, or bypass for direct comparison.
+
+## Bass Plus audition
+
+The initial bass variant was not noticeably different to the listener. Firefox routing through all effects was confirmed. Loaded `MacBook-Warm-Smooth-Bass-Plus`: 160 Hz +4 dB bell, -6 dB EQ headroom, bass enhancer amount 0 dB and scope 200 Hz, enhancer output 0 dB. Compressor and limiter retained. Previous presets retained; no physical volume or autostart change. New listening and distortion checks pending.
