@@ -1,0 +1,28 @@
+# Credentials and local workstation context
+.env
+.env.*
+*.env
+# Logs and local backups
+*.log
+*.backup*
+backups/
+# Kernel build output
+*.o
+*.ko
+*.mod
+*.mod.c
+*.cmd
+.*.cmd
+Module.symvers
+modules.order
+.tmp_versions/
+# Apple downloads and extracted proprietary firmware
+AppleCameraInterface
+AppleCamera.sys
+firmware.bin
+*.dmg
+*.deb
+# Personal desktop and browser data
+prefs.js
+sessionstore*
+*.sqlite*

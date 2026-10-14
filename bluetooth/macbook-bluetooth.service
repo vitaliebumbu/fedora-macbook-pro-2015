@@ -1,0 +1,13 @@
+[Unit]
+Description=Load MacBook Bluetooth after early boot initialization
+After=display-manager.service
+ConditionPathExists=/sys/bus/usb/devices/1-8
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sleep 15
+ExecStart=/usr/sbin/modprobe btusb
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

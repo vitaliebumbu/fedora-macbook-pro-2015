@@ -1,0 +1,11 @@
+[Unit]
+Description=Delay MacBook Bluetooth initialization without blocking boot
+After=display-manager.service
+
+[Timer]
+OnActiveSec=15s
+AccuracySec=1s
+Unit=macbook-bluetooth.service
+
+[Install]
+WantedBy=multi-user.target

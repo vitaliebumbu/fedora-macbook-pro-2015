@@ -1,0 +1,13 @@
+[Unit]
+Description=Keep FaceTime HD unloaded during sleep and reload after wake
+Before=sleep.target
+StopWhenUnneeded=yes
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/modprobe -r facetimehd
+ExecStop=/usr/sbin/modprobe facetimehd
+
+[Install]
+WantedBy=sleep.target
