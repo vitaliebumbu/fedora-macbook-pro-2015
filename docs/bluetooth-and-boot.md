@@ -69,3 +69,11 @@ The timer checks45 seconds after boot and every2 minutes. It only acts while blu
 Verified unit syntax, installed contexts, timer enablement and real healthy-controller exit0. An isolated simulated missing-controller test produced exactly one reset and detected recovery. Actual recovery during a future reboot failure remains untested; the prior manual USB reset succeeded. It covers controller enumeration failure, not every pairing or connection fault.
 
 Inspect `journalctl -u macbook-bluetooth-recovery.service` and `systemctl list-timers macbook-bluetooth-recovery.timer`. Rollback: `systemctl disable --now macbook-bluetooth-recovery.timer`; leave script/unit files inactive or remove them and daemon-reload. Existing delayed Bluetooth initialization remains in place.
+
+## Remove desktop Wi-Fi startup wait — 2026-10-14
+
+Latest measured boot15.268s; NetworkManager-wait-online took3.932s, network-online reached at7.554s userspace and user sessions waited until7.566s. GDM followed user sessions. No NFS/CIFS mounts or remote filesystems in fstab were found. Disabled `NetworkManager-wait-online.service` with `systemctl disable`; NetworkManager remains active and Wi-Fi connected. No connection profile, Wi-Fi powersave or Bluetooth setting changed.
+
+This lets the desktop proceed before Wi-Fi activation finishes. Network-dependent jobs may now start before connectivity exists. Re-enable with `sudo systemctl enable NetworkManager-wait-online.service` if adding boot-critical remote mounts/services. Approximately4 seconds of wait was a candidate for removal, not a measured improvement: next reboot and visible login timing remain pending. Plymouth quit-wait was left unchanged because it follows graphical readiness; shortening its accounting alone does not prove faster usable startup.
+
+Reference: [NetworkManager wait-online documentation](https://networkmanager.dev/docs/api/latest/NetworkManager-wait-online.service.html).
