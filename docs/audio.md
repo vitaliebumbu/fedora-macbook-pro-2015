@@ -41,3 +41,9 @@ The initial bass variant was not noticeably different to the listener. Firefox r
 Loaded `MacBook-Warm-Smooth-Balanced-Bass` for a compromise between Warm Smooth and Bass Plus. Uses a 160 Hz +3 dB bell with -5.5 dB EQ input headroom; gentle bass enhancement amount -3 dB, scope 180 Hz, output -0.5 dB. Other EQ bands, compressor and limiter retained. Previous presets remain available. No output-volume or autostart change. Preset selection and stereo routing verified. The user approved this preset on 2026-10-14; it is the preferred built-in speaker preset. Distortion measurement remains unperformed. This is subjective tuning, not measured Sonos calibration.
 
 To reload the preferred preset, start EasyEffects and run `easyeffects -l MacBook-Warm-Smooth-Balanced-Bass`, then `easyeffects -b 2`. No automatic login startup has been configured.
+
+## Persistent startup — 2026-10-14
+
+Enabled a user XDG login autostart entry using `audio/enable-login-startup.sh` and `audio/start-speaker-effects.sh`. It starts EasyEffects service mode and restores the approved preset with processing enabled when an analog speaker port is active; otherwise it bypasses processing. The check is made at startup only; later headphone switching is not handled by this script. Install the preset in the output directory first.
+
+Manual startup path passed: CLI reports Balanced Bass and bypass disabled, with physical speaker routing through effects. Next-login startup remains untested. Remove `~/.config/autostart/macbook-speaker-effects.desktop` to disable automatic launch. This supersedes earlier notes saying startup was not configured.
