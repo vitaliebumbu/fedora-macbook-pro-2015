@@ -57,3 +57,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 
 - User installed enhanced-h264ify v2.2.1; Firefox reports extension active.
 - Documented codec/frame-rate tradeoffs and rollback. Same-video H.264 confirmation and thermal comparison remain pending.
+
+- User screenshot confirmed YouTube switched to H.264 at 720p/30 fps; observed 70 C panel reading. Recorded comparison limitations without publishing personal screenshot content.

@@ -43,3 +43,7 @@ Installed [enhanced-h264ify](https://addons.mozilla.org/en-US/firefox/addon/enha
 Reload existing YouTube video tabs after installation. Stats for nerds should show `avc1` for H.264. Firefox's RDD process still had the Intel driver and GPU device open after installation, but those resources may remain from the earlier H.264 sample; this alone does not establish the new YouTube stream's codec or prove a temperature improvement. Same-video codec and power comparison remain pending.
 
 Disable or remove the extension in `about:addons` to undo. Higher-resolution YouTube formats may become unavailable when preferring H.264.
+
+### YouTube H.264 confirmed
+
+A user-provided screenshot after reloading the same video showed `avc1.64001F` at 1280x720/30 fps, confirming the extension selected H.264. Vitals displayed 70 C. The screenshot showed 27 dropped frames out of 1948 (about 1.4%); the earlier AV1 snapshot showed about 1.2%, so these snapshots do not demonstrate an improvement in dropped-frame rate. Temperature was lower than earlier 82–84 C observations, but workloads and measurement times differed, so this is not a controlled thermal comparison. The desktop screenshot was not published.
