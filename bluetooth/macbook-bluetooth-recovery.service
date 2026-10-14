@@ -1,0 +1,8 @@
+[Unit]
+Description=Recover unavailable MacBook Bluetooth controller
+After=bluetooth.service macbook-bluetooth.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/macbook-bluetooth-recovery
+TimeoutStartSec=100s

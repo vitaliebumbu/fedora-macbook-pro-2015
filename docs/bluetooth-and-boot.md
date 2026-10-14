@@ -57,3 +57,15 @@ Unit validation and GRUB syntax passed. Reboot speed and Bluetooth functionality
 ## Rollback
 
 Disable the timer, remove the added timer/drop-in, restore prior Bluetooth files and enablement, reload systemd and udev, and rebuild the affected initramfs. Restore your prior `/etc/default/grub` and regenerate GRUB. Back up before applying so rollback preserves your own earlier settings.
+
+## Automatic missing-controller recovery
+
+After a reboot produced BCM reset timeout -110, a targeted USB reset recovered the controller. Added `bluetooth/recover-controller.sh`, `macbook-bluetooth-recovery.service` and `.timer`.
+
+Install the script as `/usr/local/sbin/macbook-bluetooth-recovery` mode755 and both units in `/etc/systemd/system/` mode644; restore SELinux contexts, run `systemctl daemon-reload`, then `systemctl enable --now macbook-bluetooth-recovery.timer` as root. Requires bluetoothctl and usbreset (already present on this workstation).
+
+The timer checks45 seconds after boot and every2 minutes. It only acts while bluetooth.service is active and no controller is listed. Requires exactly one USB device with vendor/product05ac:8290, waits5 seconds for initialization, then resets that device once and checks for recovery. A healthy or merely powered-off listed controller is untouched. No system reboot, module unload, BlueZ restart or pairing deletion. No controller-name matches means recovery is skipped. Reset commands and checks have timeouts; service maximum100 seconds.
+
+Verified unit syntax, installed contexts, timer enablement and real healthy-controller exit0. An isolated simulated missing-controller test produced exactly one reset and detected recovery. Actual recovery during a future reboot failure remains untested; the prior manual USB reset succeeded. It covers controller enumeration failure, not every pairing or connection fault.
+
+Inspect `journalctl -u macbook-bluetooth-recovery.service` and `systemctl list-timers macbook-bluetooth-recovery.timer`. Rollback: `systemctl disable --now macbook-bluetooth-recovery.timer`; leave script/unit files inactive or remove them and daemon-reload. Existing delayed Bluetooth initialization remains in place.

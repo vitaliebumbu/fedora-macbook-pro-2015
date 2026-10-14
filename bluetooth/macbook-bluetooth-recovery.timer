@@ -1,0 +1,11 @@
+[Unit]
+Description=Check MacBook Bluetooth availability after boot and periodically
+
+[Timer]
+OnBootSec=45s
+OnUnitActiveSec=2min
+AccuracySec=5s
+Unit=macbook-bluetooth-recovery.service
+
+[Install]
+WantedBy=timers.target

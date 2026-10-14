@@ -114,3 +114,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Added persistent EasyEffects speaker startup and pinned WhiteSur cursor installation. Verified approved preset active/bypass off and saved cursor setting. Next-login/reboot checks pending.
 
 - Recorded reboot persistence checks and corrected speaker startup device-readiness handling. Bluetooth reset timeout found; manual module reload/USB reset attempted, permanent recovery pending.
+
+- Added bounded automatic Bluetooth recovery for missing05ac:8290 controller,45s after boot/every2min. Healthy check and simulated one-reset recovery passed; real future failure recovery pending.
