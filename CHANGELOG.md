@@ -120,3 +120,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Second reboot confirmed approved audio preset/bypass restored automatically, Bluetooth controller present and recovery timer successful without reset, Wi-Fi connected and scrolling library loaded.
 
 - Set earlier fan thresholds50/55/80C with3500RPM minimums for cooler-operation preference; backed up original config, restarted and observed fan response. No additional CPU performance cap or controlled improvement claim.
+
+- Restored pre-trial fan thresholds55/60/86C and hardware-derived fan minimums at user request; mbpfan restarted and active.

@@ -4,11 +4,9 @@ The machine has `mbpfan.service` enabled and active. The backed-up configuration
 
 ```ini
 [general]
-min_fan1_speed = 3500
-min_fan2_speed = 3500
-low_temp = 50
-high_temp = 55
-max_temp = 80
+low_temp = 55
+high_temp = 60
+max_temp = 86
 polling_interval = 1
 ```
 
@@ -35,3 +33,7 @@ At user request, changed thresholds from55/60/86 to50/55/80 C, with minimum3500R
 Original config backup `/etc/mbpfan.conf.backup-20261014-005340`. Rollback: restore this file to `/etc/mbpfan.conf`, then restart mbpfan. Enabled service makes the new settings persistent. Baseline short sample58–62 C, initial ramp-only followup64–65 C with no throttling; varying workload means this is not a controlled temperature comparison. Higher temperatures during sustained load remain possible.
 
 Final15s check with fan floor: maximum CPU sensor62–63 C, fans approximately3940/3830RPM. Service active; reboot with this exact config not yet tested.
+
+## Restored previous settings — 2026-10-14
+
+User requested rollback. Restored original55/60/86 C configuration from `/etc/mbpfan.conf.backup-20261014-005340`, removing3500RPM minimum overrides. mbpfan restarted successfully and is active. This supersedes the cooler-operation trial above. Hardware-derived fan minimums/maxima apply again. Power profile and thermald unchanged.
