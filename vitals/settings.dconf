@@ -1,0 +1,5 @@
+[/]
+hot-sensors=['_temperature_processor_0_']
+include-public-ip=false
+menu-centered=false
+position-in-panel=0

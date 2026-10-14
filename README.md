@@ -13,6 +13,7 @@ These files document one workstation. Apply the sections you need after reviewin
 | Camera | [FaceTime HD driver, firmware extraction, and kernel updates](docs/camera.md) |
 | Lid and sleep | [Lid-close suspend and camera sleep/wake handling](docs/suspend.md) |
 | Bluetooth and reboot | [Delayed Bluetooth without blocking boot, GRUB timeout](docs/bluetooth-and-boot.md) |
+| Monitoring | [Vitals temperature and system panel widget](docs/vitals.md) |
 | Cooling | [Fan settings and mbpfan](docs/fans.md) |
 | Packages | [DNF, RPM Fusion free/nonfree, and codecs](docs/packages.md) |
 | Firefox | [Restore previous windows and tabs](docs/firefox.md) |

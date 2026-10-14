@@ -24,3 +24,10 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Added Control-modifier screenshot bindings to preserve physical Command screenshot combinations.
 - Recorded Command+C/V for normal apps, Command+P for print, terminal Shift requirements, Super-key side effects, and rollback.
 - Runtime configuration was checked; physical application behavior and reboot persistence remain pending tests.
+
+### Vitals panel widget
+
+- Documented the existing Vitals v85 installation, enabled and active on GNOME Shell 50.5.
+- Backed up processor-temperature panel selection, left panel position, disabled public-IP lookup, and menu positioning.
+- Added a preference restore script with a prior-settings backup and installation/rollback guide.
+- No live extension settings were changed during this backup; restore script syntax was checked without applying it.
