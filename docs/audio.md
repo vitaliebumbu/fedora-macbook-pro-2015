@@ -38,4 +38,6 @@ The initial bass variant was not noticeably different to the listener. Firefox r
 
 ## Warm Smooth Balanced Bass audition
 
-Loaded `MacBook-Warm-Smooth-Balanced-Bass` for a compromise between Warm Smooth and Bass Plus. Uses a 160 Hz +3 dB bell with -5.5 dB EQ input headroom; gentle bass enhancement amount -3 dB, scope 180 Hz, output -0.5 dB. Other EQ bands, compressor and limiter retained. Previous presets remain available. No output-volume or autostart change. Preset selection and stereo routing verified; subjective acceptance and distortion measurement pending. This is subjective tuning, not measured Sonos calibration.
+Loaded `MacBook-Warm-Smooth-Balanced-Bass` for a compromise between Warm Smooth and Bass Plus. Uses a 160 Hz +3 dB bell with -5.5 dB EQ input headroom; gentle bass enhancement amount -3 dB, scope 180 Hz, output -0.5 dB. Other EQ bands, compressor and limiter retained. Previous presets remain available. No output-volume or autostart change. Preset selection and stereo routing verified. The user approved this preset on 2026-10-14; it is the preferred built-in speaker preset. Distortion measurement remains unperformed. This is subjective tuning, not measured Sonos calibration.
+
+To reload the preferred preset, start EasyEffects and run `easyeffects -l MacBook-Warm-Smooth-Balanced-Bass`, then `easyeffects -b 2`. No automatic login startup has been configured.

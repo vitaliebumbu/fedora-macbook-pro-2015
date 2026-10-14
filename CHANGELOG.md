@@ -101,3 +101,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Added Bass Plus audition after initial bass change was not noticeable; verified Firefox processing path. Listening validation pending.
 
 - Added Warm Smooth Balanced Bass as a moderate compromise between the smooth and stronger bass auditions; previous presets retained. Listening acceptance pending.
+
+- User approved Warm Smooth Balanced Bass as the preferred built-in speaker preset on 2026-10-14. Recorded manual reload steps; automatic startup remains unconfigured.
