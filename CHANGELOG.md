@@ -67,3 +67,9 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Excluded private session/account data and logs from publication.
 
 - Installed uBlock Origin v1.75.0 and confirmed active in Firefox; retained default filtering, with performance gains unmeasured.
+
+### Battery diagnostics
+
+- Observed battery discharge despite AC detection with a reported 60W adapter.
+- Identified raw/desktop percentage mismatch consistent with an ACPI SBS reporting issue; refreshed UPower without claiming a repair.
+- Documented correct-adapter comparison and physical SMC reset as pending troubleshooting.
