@@ -108,3 +108,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 
 - Installed user-local gascroll workaround, filtered to bcm5974 at factor0.50. Preserved source/MIT license and added install/rollback documentation.
 - Build, configuration live-reload self-test and unit environment verified. Logout/login activation and physical scrolling testing pending. Existing natural scrolling/pointer settings retained.
+
+- Confirmed scroll workaround mapped in GNOME Shell. Applied adaptive pointer acceleration, touchpad speed -0.15 and natural mouse scrolling, with local backups and reproducible settings script. Subjective feel remains pending.
