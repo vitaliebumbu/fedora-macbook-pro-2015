@@ -79,3 +79,7 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Installed mpv, enabled hwdec=auto, and verified local H.264 VA-API playback; temporary sample removed.
 - Investigated previous-boot Broadcom scan failures and disabled Wi-Fi power saving through a custom TuneD Power Saver profile and NetworkManager default, preserving CPU power-saving behavior.
 - Verified current connection and profile; reboot stability remains untested.
+
+## 2026-10-14
+
+- Installed Bambu Studio 2.8.2.61 system-wide from Flathub and launched it. Installation and running processes verified; setup, slicing, and printer connectivity remain untested.
