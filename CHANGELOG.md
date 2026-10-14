@@ -65,3 +65,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Confirmed existing i965 hardware decoding and FFmpeg 4 compatibility library, with H.265/10-bit/4:4:4 off.
 - No decoder configuration change was needed. Documented recurring historical decoder failures and remaining stream diagnostics.
 - Excluded private session/account data and logs from publication.
+
+- Installed uBlock Origin v1.75.0 and confirmed active in Firefox; retained default filtering, with performance gains unmeasured.

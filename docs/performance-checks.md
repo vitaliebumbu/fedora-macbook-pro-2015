@@ -47,3 +47,7 @@ Disable or remove the extension in `about:addons` to undo. Higher-resolution You
 ### YouTube H.264 confirmed
 
 A user-provided screenshot after reloading the same video showed `avc1.64001F` at 1280x720/30 fps, confirming the extension selected H.264. Vitals displayed 70 C. The screenshot showed 27 dropped frames out of 1948 (about 1.4%); the earlier AV1 snapshot showed about 1.2%, so these snapshots do not demonstrate an improvement in dropped-frame rate. Temperature was lower than earlier 82–84 C observations, but workloads and measurement times differed, so this is not a controlled thermal comparison. The desktop screenshot was not published.
+
+## Browser content blocking
+
+Installed [uBlock Origin by Raymond Hill](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/) v1.75.0 and verified Firefox reports it active. Keep the extension's default filtering initially; additional lists are not necessary for the baseline test. The extension can reduce unwanted advertising/tracking requests, but no site-level CPU or battery improvement was benchmarked in this installation. If a site breaks, disable filtering for that site and reload; remove the extension through `about:addons` to undo installation.
