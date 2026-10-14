@@ -83,3 +83,8 @@ Camera installation is not currently confirmed: publication-time checks found no
 ## 2026-10-14
 
 - Installed Bambu Studio 2.8.2.61 system-wide from Flathub and launched it. Installation and running processes verified; setup, slicing, and printer connectivity remain untested.
+
+### Speaker audio investigation
+
+- Installed EasyEffects 8.2.8, tested conservative EQ, and verified stereo processing. User preferred previous sound; bypassed and quit effects, verified direct speaker playback, no autostart enabled.
+- Corrected temporary dependency downgrades from release-only metadata by upgrading affected packages from updates.
