@@ -18,6 +18,8 @@ These files document one workstation. Apply the sections you need after reviewin
 | Packages | [DNF, RPM Fusion free/nonfree, and codecs](docs/packages.md) |
 | Firefox | [Restore previous windows and tabs](docs/firefox.md) |
 | Remote desktop | [Parsec hardware decoding and stream diagnostics](docs/parsec.md) |
+| Local video | [mpv hardware decoding](docs/local-video.md) |
+| Wi-Fi | [BCM43602 Power Saver workaround](docs/wifi.md) |
 | Performance | [Video, battery, and suspend checks](docs/performance-checks.md) |
 | Battery | [Charger and percentage-reporting diagnosis](docs/battery.md) |
 | Storage | [Automatic temporary-file and cache cleanup](docs/storage.md) |

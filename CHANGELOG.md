@@ -73,3 +73,9 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Observed battery discharge despite AC detection with a reported 60W adapter.
 - Identified raw/desktop percentage mismatch consistent with an ACPI SBS reporting issue; refreshed UPower without claiming a repair.
 - Documented correct-adapter comparison and physical SMC reset as pending troubleshooting.
+
+### Local video and Wi-Fi follow-up
+
+- Installed mpv, enabled hwdec=auto, and verified local H.264 VA-API playback; temporary sample removed.
+- Investigated previous-boot Broadcom scan failures and disabled Wi-Fi power saving through a custom TuneD Power Saver profile and NetworkManager default, preserving CPU power-saving behavior.
+- Verified current connection and profile; reboot stability remains untested.
