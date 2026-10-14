@@ -1,0 +1,111 @@
+{
+  "output": {
+    "blocklist": [],
+    "plugins_order": [
+      "equalizer#0"
+    ],
+    "equalizer#0": {
+      "balance": 0.0,
+      "bypass": false,
+      "input-gain": -3.0,
+      "output-gain": 0.0,
+      "mode": "IIR",
+      "num-bands": 4,
+      "pitch-left": 0.0,
+      "pitch-right": 0.0,
+      "split-channels": false,
+      "left": {
+        "band0": {
+          "frequency": 180,
+          "gain": 2.0,
+          "mode": "RLC (BT)",
+          "mute": false,
+          "q": 0.8,
+          "slope": "x1",
+          "solo": false,
+          "type": "Bell",
+          "width": 4.0
+        },
+        "band1": {
+          "frequency": 450,
+          "gain": 0.5,
+          "mode": "RLC (BT)",
+          "mute": false,
+          "q": 0.9,
+          "slope": "x1",
+          "solo": false,
+          "type": "Bell",
+          "width": 4.0
+        },
+        "band2": {
+          "frequency": 3000,
+          "gain": -0.75,
+          "mode": "RLC (BT)",
+          "mute": false,
+          "q": 0.9,
+          "slope": "x1",
+          "solo": false,
+          "type": "Bell",
+          "width": 4.0
+        },
+        "band3": {
+          "frequency": 8000,
+          "gain": -1.5,
+          "mode": "RLC (BT)",
+          "mute": false,
+          "q": 0.7,
+          "slope": "x1",
+          "solo": false,
+          "type": "Bell",
+          "width": 4.0
+        }
+      },
+      "right": {
+        "band0": {
+          "frequency": 180,
+          "gain": 2.0,
+          "mode": "RLC (BT)",
+          "mute": false,
+          "q": 0.8,
+          "slope": "x1",
+          "solo": false,
+          "type": "Bell",
+          "width": 4.0
+        },
+        "band1": {
+          "frequency": 450,
+          "gain": 0.5,
+          "mode": "RLC (BT)",
+          "mute": false,
+          "q": 0.9,
+          "slope": "x1",
+          "solo": false,
+          "type": "Bell",
+          "width": 4.0
+        },
+        "band2": {
+          "frequency": 3000,
+          "gain": -0.75,
+          "mode": "RLC (BT)",
+          "mute": false,
+          "q": 0.9,
+          "slope": "x1",
+          "solo": false,
+          "type": "Bell",
+          "width": 4.0
+        },
+        "band3": {
+          "frequency": 8000,
+          "gain": -1.5,
+          "mode": "RLC (BT)",
+          "mute": false,
+          "q": 0.7,
+          "slope": "x1",
+          "solo": false,
+          "type": "Bell",
+          "width": 4.0
+        }
+      }
+    }
+  }
+}

@@ -88,3 +88,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 
 - Installed EasyEffects 8.2.8, tested conservative EQ, and verified stereo processing. User preferred previous sound; bypassed and quit effects, verified direct speaker playback, no autostart enabled.
 - Corrected temporary dependency downgrades from release-only metadata by upgrading affected packages from updates.
+
+- Added and loaded Warm Music speaker preset at user request; stereo EQ routing verified, subjective listening feedback pending. No autostart or volume boost.
