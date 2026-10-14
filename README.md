@@ -17,6 +17,7 @@ These files document one workstation. Apply the sections you need after reviewin
 | Cooling | [Fan settings and mbpfan](docs/fans.md) |
 | Packages | [DNF, RPM Fusion free/nonfree, and codecs](docs/packages.md) |
 | Firefox | [Restore previous windows and tabs](docs/firefox.md) |
+| Performance | [Video, battery, and suspend checks](docs/performance-checks.md) |
 | Status | [Recorded changes and verification limits](CHANGELOG.md) |
 
 ## Hardware and scope
@@ -39,7 +40,7 @@ git clone https://github.com/vitaliebumbu/fedora-macbook-pro-2015.git
 cd fedora-macbook-pro-2015
 ```
 
-**Current camera status needs attention:** camera source and configuration are backed up, but the publication-time check did not find an installed `facetimehd` module or `/dev/video0`. Follow the camera guide to build for your kernel and verify an actual video stream.
+**Camera verified:** the patched driver now builds through DKMS, and a 60-frame capture passed at about 30 fps on kernel `7.2.10-200.fc44.x86_64`. Future kernel rebuilds and sleep/wake behavior still require verification.
 
 ## Updates and contributions
 

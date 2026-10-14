@@ -18,7 +18,7 @@ Apple firmware and compiled modules are intentionally excluded from Git. The ext
 
 ## Kernel upgrades
 
-The installer is a manual build; it does not register automatic DKMS rebuilds. Build again for each target kernel before relying on the camera:
+The original installer is a manual build. The optional DKMS registration below adds automatic rebuilds. Build again for each target kernel before relying on the camera:
 
 ```bash
 rpm -q kernel-core --qf '%{VERSION}-%{RELEASE}.%{ARCH}\n'
@@ -48,3 +48,20 @@ A device node alone does not demonstrate a working stream. Check frame progress 
 The check on 2026-10-13 found source and configuration, but `modinfo facetimehd` failed and no `/dev/video*` node was listed. A check for the newly installed `7.2.10-200.fc44.x86_64` module also failed. Camera operation is therefore **pending rebuild and testing**, rather than confirmed working.
 
 For removal, inspect `camera/uninstall.sh` before running it; it removes driver configuration and firmware. Keep backups of your prior configuration.
+
+## DKMS automatic rebuilds — verified 2026-10-13
+
+The patched source was registered as `facetimehd/0.6.13-workstation1` and built for `7.2.10-200.fc44.x86_64`. The camera passed a 60-frame V4L2 capture at about 30 fps. This supersedes the missing-module publication snapshot above.
+
+After firmware installation, register it on another machine:
+
+```bash
+sudo bash camera/install-dkms.sh
+sudo dkms status
+```
+
+Fedora's installed DKMS package provides `/usr/lib/kernel/install.d/40-dkms.install`; `AUTOINSTALL=yes` enables rebuilding for subsequent kernels when matching headers are available. Future-kernel builds are not yet tested. The deprecated CLEAN setting may produce a warning on current DKMS.
+
+DKMS generated a local module-signing key. If Secure Boot requires enrollment, follow the distribution's enrollment procedure; the signing key must never be published. This workstation loaded the module successfully.
+
+Do not rerun the manual installer over a DKMS-managed module. After kernel updates, inspect DKMS status and test streaming before assuming camera availability. To remove this registration: `sudo dkms remove -m facetimehd -v 0.6.13-workstation1 --all`; remove the corresponding `/usr/src/` directory only after confirming it is no longer needed.

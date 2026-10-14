@@ -31,3 +31,11 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Backed up processor-temperature panel selection, left panel position, disabled public-IP lookup, and menu positioning.
 - Added a preference restore script with a prior-settings backup and installation/rollback guide.
 - No live extension settings were changed during this backup; restore script syntax was checked without applying it.
+
+### Camera repair and performance diagnostics
+
+- Installed DKMS and PowerTOP, including matched kernel headers and package dependencies.
+- Built the patched FaceTime HD driver through DKMS for kernel 7.2.10-200.fc44.x86_64; 60-frame camera stream passed at about 30 fps.
+- Added DKMS registration source/configuration and documented automatic rebuild hooks and future-kernel verification limits.
+- Confirmed Intel i965 H.264 acceleration availability; Firefox application-level acceleration remains a manual check.
+- Recorded active-workload battery readings and prepared idle-power and suspend test procedures; no auto-tune, power-profile, fan-curve, or suspend-policy changes applied.
