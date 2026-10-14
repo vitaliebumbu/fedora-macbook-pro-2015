@@ -1,0 +1,9 @@
+[Unit]
+Description=Clean user DNF caches and stale thumbnails
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/dnf clean all
+ExecStart=/usr/bin/systemd-tmpfiles --user --clean
+Nice=19
+IOSchedulingClass=idle

@@ -39,3 +39,10 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Added DKMS registration source/configuration and documented automatic rebuild hooks and future-kernel verification limits.
 - Confirmed Intel i965 H.264 acceleration availability; Firefox application-level acceleration remains a manual check.
 - Recorded active-workload battery readings and prepared idle-power and suspend test procedures; no auto-tune, power-profile, fan-curve, or suspend-policy changes applied.
+
+### Limited-storage housekeeping
+
+- Confirmed camera capture wrote to /dev/null and saved no video.
+- Added journal storage limits, weekly system/user DNF cache cleanup timers, and 30-day stale thumbnail cleanup; enabled GNOME old temporary-file cleanup.
+- Retained existing daily temporary-directory cleanup and weekly SSD TRIM.
+- Immediate DNF cleanup reclaimed approximately 380 MiB with no reported errors; did not remove personal files, application runtimes, browser sessions, or packages.

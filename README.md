@@ -18,6 +18,7 @@ These files document one workstation. Apply the sections you need after reviewin
 | Packages | [DNF, RPM Fusion free/nonfree, and codecs](docs/packages.md) |
 | Firefox | [Restore previous windows and tabs](docs/firefox.md) |
 | Performance | [Video, battery, and suspend checks](docs/performance-checks.md) |
+| Storage | [Automatic temporary-file and cache cleanup](docs/storage.md) |
 | Status | [Recorded changes and verification limits](CHANGELOG.md) |
 
 ## Hardware and scope

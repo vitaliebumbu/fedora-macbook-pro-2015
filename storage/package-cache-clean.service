@@ -1,0 +1,9 @@
+[Unit]
+Description=Clean regenerable DNF package and repository caches
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/dnf clean all
+Nice=19
+IOSchedulingClass=idle
