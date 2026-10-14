@@ -46,3 +46,9 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Added journal storage limits, weekly system/user DNF cache cleanup timers, and 30-day stale thumbnail cleanup; enabled GNOME old temporary-file cleanup.
 - Retained existing daily temporary-directory cleanup and weekly SSD TRIM.
 - Immediate DNF cleanup reclaimed approximately 380 MiB with no reported errors; did not remove personal files, application runtimes, browser sessions, or packages.
+
+### Firefox playback verification
+
+- Identified YouTube AV1 software decoding on Haswell.
+- Confirmed H.264 test format and observed Firefox RDD loading Intel i965 and opening the GPU render device across four samples.
+- Retained current Firefox preferences; no video saved to disk.

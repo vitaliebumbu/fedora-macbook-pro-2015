@@ -27,3 +27,11 @@ Deep sleep is selected (`s2idle [deep]`). No blocking sleep inhibitor was observ
 5. Measure sleep battery loss over a known interval before applying ACPI wake-source changes.
 
 Keep working lid wake behavior unless evidence identifies a specific problem. Do not copy 13-inch MacBook USB paths, force PCIe ASPM, disable security mitigations, or stack competing power managers as generic optimizations.
+
+## Firefox playback check — 2026-10-13
+
+YouTube Stats for nerds showed AV1 (`av01`) at 1280x720/30 fps, with 81 dropped frames out of 6538. During that playback, the Firefox RDD process had no GPU render device or Intel decoding driver open, consistent with software decoding. Haswell does not accelerate AV1.
+
+Opened the [MDN sample video](https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4) in the running Firefox; ffprobe confirmed H.264. Across four process inspections, RDD had loaded `i965_drv_video.so` and opened `/dev/dri/renderD128`, providing evidence that the hardware-decoding path engaged for the supported codec. No Firefox settings were changed and no video was downloaded to disk. This is process-level evidence, not a GPU engine utilization benchmark.
+
+For YouTube, selecting H.264 using a compatible codec-selection extension is an optional next step; it can reduce available resolution and requires a separate playback test. Installing a newer driver cannot add AV1 decoding hardware to this GPU.
