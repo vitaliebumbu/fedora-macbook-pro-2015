@@ -17,3 +17,10 @@
 DNF transactions completed successfully; repository state, Fn parameter (`1`), GNOME shortcut values, active fan service, installed lid policy, systemd syntax, and GRUB syntax were checked. New boot timing, physical shortcut actions, lid suspend/resume, media playback, and Firefox session restoration remain untested in this consolidation.
 
 Camera installation is not currently confirmed: publication-time checks found no installed `facetimehd` module and no video device. Rebuild and stream-test before reporting it working. Earlier local camera/lid notes described Fedora 43 tests; those claims are not promoted to current Fedora 44 verification.
+
+### Command shortcuts
+
+- Enabled Apple keyboard Command/Control swap live and in a separate modprobe configuration; rebuilt the running kernel initramfs.
+- Added Control-modifier screenshot bindings to preserve physical Command screenshot combinations.
+- Recorded Command+C/V for normal apps, Command+P for print, terminal Shift requirements, Super-key side effects, and rollback.
+- Runtime configuration was checked; physical application behavior and reboot persistence remain pending tests.

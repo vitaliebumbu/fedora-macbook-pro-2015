@@ -27,7 +27,7 @@ To undo: `sudo bash keyboard/uninstall.sh`. Back up any pre-existing `hid_apple.
 
 ## Screenshot shortcuts
 
-Command is GNOME's **Super** key; Option is **Alt**. Recorded bindings:
+With the optional Command/Control swap below, physical Command sends **Control** and physical Control sends **Super**. Option remains **Alt**. The screenshot installer includes both modifier variants to retain the same physical Command shortcuts. Recorded bindings:
 
 | Shortcut | Action |
 | --- | --- |
@@ -45,3 +45,27 @@ bash screenshots/install.sh
 Run as your desktop user, without sudo. The script saves existing GNOME shell keybindings under `~/.local/state/fedora-macbook-pro-2015/` before setting the three bindings. Review the saved dconf file before restoring it with `dconf load /org/gnome/shell/keybindings/ < BACKUP_FILE`; this restores all bindings in that saved subtree.
 
 Bindings were read from GNOME; capturing screenshots with the physical keyboard was not tested during publication.
+
+## Command copy, paste, and print
+
+The optional `keyboard/command-shortcuts.conf` enables the Apple driver parameter `swap_ctrl_cmd=1`, swapping Command and Control on Apple keyboards. It is separate from the Fn configuration so the original Fn installer cannot overwrite it.
+
+```bash
+sudo bash keyboard/install-command-shortcuts.sh
+bash screenshots/install.sh
+```
+
+| Physical keys | Action in normal applications |
+| --- | --- |
+| Command + C | Copy |
+| Command + V | Paste |
+| Command + X | Cut |
+| Command + P | Print |
+| Command + A | Select all |
+| Command + Z | Undo |
+
+Terminals usually use **Command+Shift+C/V** for copy/paste after this swap. Command+C remains the terminal interrupt. The physical Control key now invokes GNOME Super shortcuts (for example Control+L locks the screen). This is a driver-level modifier swap, not application-specific shortcut emulation.
+
+Applied live on 2026-10-13; the runtime value was verified as `1` and the running kernel initramfs was rebuilt. Physical application copy/paste and reboot persistence remain untested. Screenshot bindings were updated to preserve physical Command+Shift+3/4/5 and Command+Shift+Option+4.
+
+To undo, remove `/etc/modprobe.d/hid_apple-command.conf`, write `0` to `/sys/module/hid_apple/parameters/swap_ctrl_cmd` with administrator access, and rebuild the running kernel initramfs. Keep the Fn configuration. Remove only the added Control screenshot bindings if desired, preserving other custom bindings.
