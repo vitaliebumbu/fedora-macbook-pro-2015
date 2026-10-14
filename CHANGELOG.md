@@ -92,3 +92,8 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Added and loaded Warm Music speaker preset at user request; stereo EQ routing verified, subjective listening feedback pending. No autostart or volume boost.
 
 - Added Warm Smooth preset: modest warm EQ, light compression, final -1 dB limiter; loaded and verified stereo routing. Subjective compact-speaker-inspired audition, no claimed Sonos calibration; listening feedback pending.
+
+### Deeper bass audition — 2026-10-14
+
+- Added Warm Smooth Bass with a modest 130 Hz lift, harmonic bass enhancement, and extra input headroom. Retained previous presets.
+- Verified preset loading and stereo processing chain; listening acceptance pending. No output-volume increase or autostart.

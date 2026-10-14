@@ -25,3 +25,9 @@ Loaded `audio/MacBook-Warm-Smooth.json` at the user's request for a Sonos-like t
 Chain: Warm Music's modest EQ with -4 dB input headroom, gentle downward compression (-18 dB threshold, 1.6:1 ratio, 25 ms attack, 150 ms release, +1.5 dB makeup), then a stereo-linked -1 dB limiter with automatic gain boost disabled. No deep-bass boost or stereo widening. The limiter limits digital peaks; it is not physical speaker protection.
 
 Preset load and stereo EQ → compressor → limiter routing verified. Listening acceptance, loudness matching, and distortion measurement remain pending. No autostart configured. Restore `MacBook-Warm-Music` or bypass processing for comparison.
+
+## Warm Smooth Bass audition
+
+Loaded `audio/MacBook-Warm-Smooth-Bass.json` for fuller perceived bass. Both channels use a 130 Hz +2.5 dB bell with -5 dB EQ input headroom. Gentle harmonic bass enhancement follows the EQ (amount -6 dB, harmonics 3, scope 160 Hz, floor 80 Hz enabled, output -1 dB), followed by the existing compressor and limiter.
+
+Preset selection and stereo routing through bass enhancement, compressor, and limiter verified. Listening quality and distortion remain untested. Small speakers cannot reproduce deep sub-bass through EQ alone. Output volume and autostart were unchanged. Load `MacBook-Warm-Smooth` to restore the previous audition, or bypass for direct comparison.
