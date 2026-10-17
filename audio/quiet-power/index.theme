@@ -1,0 +1,7 @@
+[Sound Theme]
+Name=Quiet Power
+Inherits=freedesktop
+Directories=stereo
+
+[stereo]
+OutputProfile=stereo

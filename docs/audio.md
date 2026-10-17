@@ -49,3 +49,9 @@ Enabled a user XDG login autostart entry using `audio/enable-login-startup.sh` a
 Manual startup path passed: CLI reports Balanced Bass and bypass disabled, with physical speaker routing through effects. Next-login startup remains untested. Remove `~/.config/autostart/macbook-speaker-effects.desktop` to disable automatic launch. This supersedes earlier notes saying startup was not configured.
 
 Reboot check found old preset/bypass restored despite startup. Startup now waits for the physical device and retries/validates the approved preset, using JSON sink inspection. Corrected manual execution passed; next-login behavior of this correction remains pending.
+
+## Disable charger sounds — 2026-10-16
+
+Run `audio/disable-power-sounds.sh` as the desktop user. Installs a user-local `quiet-power` sound theme inheriting freedesktop, with `power-plug.disabled` and `power-unplug.disabled` markers. GNOME sound theme saved as quiet-power; general event sounds remain enabled. This targets power connection/disconnection events only and does not alter charging or battery behavior.
+
+Both events tested explicitly with libcanberra: returned `Sound disabled`. Saved preference persists after login/reboot; physical cable transition not performed. Restore default with `gsettings set org.gnome.desktop.sound theme-name freedesktop`.

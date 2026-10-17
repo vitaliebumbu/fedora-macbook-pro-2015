@@ -128,3 +128,7 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Disabled desktop Wi-Fi wait-online after identifying3.932s delay on login path and no remote mounts. NetworkManager/Wi-Fi retained; actual next-boot improvement pending.
 
 - Set persistent display idle timeout30min and automatic suspend45min on AC/battery; existing immediate lid suspend/docked exception retained. Values read back verified.
+
+## 2026-10-16
+
+- Disabled power-plug/unplug sounds through a persistent user sound theme, retaining other event sounds. Both libcanberra event tests returned Sound disabled.
