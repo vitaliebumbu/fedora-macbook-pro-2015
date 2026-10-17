@@ -9,3 +9,7 @@ Install `cardreader/disable-link-power-saving.py` as `/usr/local/sbin/macbook-ca
 Rollback: remove the installed rule, reload rules, and write `u1_u2` to the affected port's `usb3_lpm_permit` (this machine `/sys/bus/usb/devices/usb2/2-0:1.0/usb2-port4/usb3_lpm_permit`) as root, or reboot after rule removal. Earlier charger mute was separately reverted at user request.
 
 [Kernel USB sysfs documentation](https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-bus-usb) describes the port-specific USB3 link-power control. SD card read/write, suspend/wake, reboot persistence and long-term stability remain untested for this trial.
+
+## User follow-up — 2026-10-16
+
+User reports no further random sounds after the targeted link-power change. Current port setting remains0 (link power saving disabled). Kernel journal nevertheless contains a later USB2-4 disconnect at22:26:12; its cause/context was not established in this follow-up. Record this as positive listening feedback, not proof that all reconnects have stopped. Long-term/reboot/suspend and card read/write validation remain pending. Normal power sounds were restored separately.

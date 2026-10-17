@@ -135,3 +135,5 @@ Camera installation is not currently confirmed: publication-time checks found no
 
 - Investigated empty built-in card-reader reconnects; applied targeted USB3 U1/U2 disable trial with persistent udev rule. Readback/rule validation passed; stability pending.
 - Restored normal power connection sounds at user request by selecting freedesktop sound theme.
+
+- User reports random sounds stopped after card-reader link-power workaround. Recorded positive listening result and later logged disconnect; full reconnect stability remains unproven.
