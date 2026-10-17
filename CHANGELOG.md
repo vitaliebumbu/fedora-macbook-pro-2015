@@ -132,3 +132,6 @@ Camera installation is not currently confirmed: publication-time checks found no
 ## 2026-10-16
 
 - Disabled power-plug/unplug sounds through a persistent user sound theme, retaining other event sounds. Both libcanberra event tests returned Sound disabled.
+
+- Investigated empty built-in card-reader reconnects; applied targeted USB3 U1/U2 disable trial with persistent udev rule. Readback/rule validation passed; stability pending.
+- Restored normal power connection sounds at user request by selecting freedesktop sound theme.

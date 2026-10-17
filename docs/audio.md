@@ -55,3 +55,7 @@ Reboot check found old preset/bypass restored despite startup. Startup now waits
 Run `audio/disable-power-sounds.sh` as the desktop user. Installs a user-local `quiet-power` sound theme inheriting freedesktop, with `power-plug.disabled` and `power-unplug.disabled` markers. GNOME sound theme saved as quiet-power; general event sounds remain enabled. This targets power connection/disconnection events only and does not alter charging or battery behavior.
 
 Both events tested explicitly with libcanberra: returned `Sound disabled`. Saved preference persists after login/reboot; physical cable transition not performed. Restore default with `gsettings set org.gnome.desktop.sound theme-name freedesktop`.
+
+### Power sounds restored — 2026-10-16
+
+At user request restored GNOME theme-name freedesktop, re-enabling normal power connection/disconnection sound lookup. Quiet Power theme retained inactive for optional reuse. This supersedes the mute configuration above. Saved setting read back verified; no physical charger transition performed.
