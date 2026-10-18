@@ -137,3 +137,7 @@ Camera installation is not currently confirmed: publication-time checks found no
 - Restored normal power connection sounds at user request by selecting freedesktop sound theme.
 
 - User reports random sounds stopped after card-reader link-power workaround. Recorded positive listening result and later logged disconnect; full reconnect stability remains unproven.
+
+## 2026-10-17
+
+- Investigated previous-boot Wi-Fi loss: Broadcom command/scan failures followed deep-sleep resume. Current connection healthy; no configuration change.
