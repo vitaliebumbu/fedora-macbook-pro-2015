@@ -141,3 +141,7 @@ Camera installation is not currently confirmed: publication-time checks found no
 ## 2026-10-17
 
 - Investigated previous-boot Wi-Fi loss: Broadcom command/scan failures followed deep-sleep resume. Current connection healthy; no configuration change.
+
+## 2026-10-26
+
+- Verified Parsec fullscreen/stream letterboxing and explicitly saved fullscreen default. Host aspect-ratio correction remains pending; no session restart or host resolution claim.
