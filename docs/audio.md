@@ -54,8 +54,80 @@ Reboot check found old preset/bypass restored despite startup. Startup now waits
 
 Run `audio/disable-power-sounds.sh` as the desktop user. Installs a user-local `quiet-power` sound theme inheriting freedesktop, with `power-plug.disabled` and `power-unplug.disabled` markers. GNOME sound theme saved as quiet-power; general event sounds remain enabled. This targets power connection/disconnection events only and does not alter charging or battery behavior.
 
+*Correction (2026-11-03):* libcanberra looks for `power-plug.oga`, not
+`power-plug.disabled`, so these markers were ignored and the events kept
+resolving to the inherited freedesktop sounds. See
+[Charger chime — 2026-11-03](#charger-chime--2026-11-03) for the working
+override.
+
 Both events tested explicitly with libcanberra: returned `Sound disabled`. Saved preference persists after login/reboot; physical cable transition not performed. Restore default with `gsettings set org.gnome.desktop.sound theme-name freedesktop`.
 
 ### Power sounds restored — 2026-10-16
 
 At user request restored GNOME theme-name freedesktop, re-enabling normal power connection/disconnection sound lookup. Quiet Power theme retained inactive for optional reuse. This supersedes the mute configuration above. Saved setting read back verified; no physical charger transition performed.
+
+## Charger chime — 2026-11-03
+
+The goal was the charger sound current Macs play, on this 2015 model, and only
+that sound — GNOME was also playing its own power event.
+
+### Source
+
+The chime is extracted from Apple's macOS 27.2 `UniversalMac` restore image at
+install time, from the ZIP member
+`Firmware/embeddedaudioresources/image4/j293-attach-chime.im4p`. The extractor
+uses HTTP range requests for the ZIP directory and that member, so the 25 GB
+image is never downloaded. The IM4P/DER container is unwrapped, the 8-byte
+`0x1001` audio-resource header is dropped, and the little-endian 16-bit PCM is
+written as a WAV.
+
+Result: 48 kHz, stereo, 1.877 s, 220 Hz fundamental with a 440 Hz partial. The
+stored peak is −28.6 dBFS; the extractor applies +25.5 dB for a −3 dBFS peak so
+it is audible at normal system volume. Apple's audio is not committed to this
+repository; `audio/power-chime/install.sh` runs the extractor locally.
+
+### Runtime
+
+`power-chime.service` is a systemd **user** unit. It runs `power-chimed`, which
+reads `/sys/class/power_supply/ADP1/online` four times a second, debounces for
+80 ms, and plays `~/.local/share/power-chime/{connect,disconnect}_power.wav`
+with `pw-play`. The state at service start is recorded, so booting or logging
+in with the charger attached does not chime. The same sound is used in both
+directions; `POWER_CHIME_ON_UNPLUG=0` in the unit restores connect-only
+behaviour like a real Mac.
+
+A user service is used instead of a udev `RUN+=` rule because udev runs as root
+outside the login session and has no `XDG_RUNTIME_DIR` or PipeWire socket.
+
+### Muting GNOME's own power sound
+
+`gsd-power` plays `power-plug` and `power-unplug` from the selected sound theme
+through libcanberra, which is why two sounds were heard. The installer adds
+`~/.local/share/sounds/quiet-power` containing 50 ms silent `power-plug.oga`
+and `power-unplug.oga`, inherits the theme selected before, and selects
+`quiet-power`. Everything not overridden still resolves through the inherited
+theme, so bells, alerts and other event sounds are unaffected.
+
+If another sound theme is selected later in GNOME Tweaks, GNOME's power sound
+returns; re-run the installer or select `quiet-power` again.
+
+### Verification
+
+- Real cable transitions logged by the running service on 2026-11-03 at 18:46,
+  18:47, 18:50, and 19:10: `power removed -> chime` followed by
+  `power connected -> chime`.
+- Sink-monitor recordings with the installed theme: `bell` peak 0.295
+  (inherited sound still audible), `power-plug` and `power-unplug` 0.000.
+- Extractor output checked: 48 kHz, stereo, 1.877 s, −3.0 dBFS peak.
+- `bash -n` passed on the scripts; the unit is enabled and active.
+
+Limits: no level-matched comparison against a current Mac and no headphone
+check. The mute relies on GNOME's `gsd-power` and on `quiet-power` remaining
+selected. The service needs a GNOME session with PipeWire.
+
+### Rollback
+
+`audio/power-chime/uninstall.sh` stops and removes the service, scripts and
+chime, deletes the theme, and restores the theme `quiet-power` inherited. To
+keep the chime but restore GNOME's power sound, select `freedesktop` (or the
+previous theme) in GNOME Tweaks.

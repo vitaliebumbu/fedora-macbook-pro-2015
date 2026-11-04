@@ -145,3 +145,11 @@ Camera installation is not currently confirmed: publication-time checks found no
 ## 2026-10-26
 
 - Verified Parsec fullscreen/stream letterboxing and explicitly saved fullscreen default. Host aspect-ratio correction remains pending; no session restart or host resolution claim.
+
+## 2026-11-03
+
+- Added `audio/power-chime`: Apple's charger chime on power connect and disconnect through a systemd user service that polls `ADP1/online` and plays with `pw-play`. No root and no udev rule.
+- The WAV is extracted locally from Apple's macOS 27.2 restore image by `tools/extract-attach-chime.py` using HTTP range requests; Apple audio is not published in the repository. Output verified at 48 kHz stereo, 1.877 s, −3 dBFS peak.
+- Replaced the 2026-10-16 mute. The `*.disabled` markers are not resolved by libcanberra, so the earlier "Sound disabled" result did not hold. The `quiet-power` theme now ships silent `power-plug.oga`/`power-unplug.oga`, inherits the previously selected theme, and is selected by the installer.
+- `audio/disable-power-sounds.sh` now installs the theme override only. `audio/quiet-power/` was removed in favour of `audio/power-chime/theme/`.
+- Verification: real cable transitions recorded in the service journal; sink-monitor recordings show the power events at 0.000 peak and an inherited bell at 0.295; scripts pass `bash -n`; the unit is enabled and active. No level-matched comparison with a current Mac and no headphone test; the mute depends on GNOME `gsd-power` and the selected theme.

@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# Play Apple's "connect to power" chime.
+#
+#   power-chime-play connect      # charger plugged in
+#   power-chime-play disconnect   # charger removed
+#   power-chime-play FILE.wav     # anything else
+#
+# Tunables (environment):
+#   POWER_CHIME_DIR      where the wav files live (default ~/.local/share/power-chime)
+#   POWER_CHIME_VOLUME   stream volume 0..1 (default 1.0)
+#
+set -u
+
+dir="${POWER_CHIME_DIR:-$HOME/.local/share/power-chime}"
+volume="${POWER_CHIME_VOLUME:-1.0}"
+
+case "${1:-connect}" in
+    connect|plug|attach)      file="$dir/connect_power.wav" ;;
+    disconnect|unplug|detach) file="$dir/disconnect_power.wav" ;;
+    *)                        file="$1" ;;
+esac
+
+if [[ ! -r "$file" ]]; then
+    printf 'power-chime-play: cannot read %s\n' "$file" >&2
+    exit 1
+fi
+
+play() {
+    if command -v pw-play >/dev/null 2>&1; then
+        pw-play --volume="$volume" "$file"
+    elif command -v paplay >/dev/null 2>&1; then
+        local v
+        # paplay wants 0..65536
+        v=$(awk -v x="$volume" 'BEGIN { printf "%d", (x > 1 ? 1 : x) * 65536 }')
+        paplay --volume="$v" "$file"
+    else
+        ffplay -nodisp -autoexit -loglevel quiet "$file"
+    fi
+}
+
+# The user service can come up while PipeWire is still starting, so retry briefly.
+for _ in 1 2 3 4; do
+    play && exit 0
+    sleep 0.4
+done
+
+printf 'power-chime-play: playback failed (is PipeWire running?)\n' >&2
+exit 1

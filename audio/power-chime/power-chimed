@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+# power-chimed - watch the AC adapter and play the Mac power chime when it
+# changes state.  Runs as a systemd *user* service so it has access to the
+# PipeWire session without needing root or udev tricks.
+#
+# Tunables (environment, see also power-chime.service):
+#   POWER_CHIME_SUPPLY    AC supply name in /sys/class/power_supply (default ADP1)
+#   POWER_CHIME_SYSFS     full path to an "online" file (overrides the above)
+#   POWER_CHIME_POLL      seconds between polls (default 0.25)
+#   POWER_CHIME_ON_PLUG   1/0, chime when power is connected (default 1)
+#   POWER_CHIME_ON_UNPLUG 1/0, chime when power is removed (default 1)
+#   POWER_CHIME_PLAY      player script (default ~/.local/bin/power-chime-play)
+#
+set -u
+
+supply="${POWER_CHIME_SUPPLY:-ADP1}"
+sysfs="${POWER_CHIME_SYSFS:-/sys/class/power_supply/$supply/online}"
+poll="${POWER_CHIME_POLL:-0.25}"
+play="${POWER_CHIME_PLAY:-$HOME/.local/bin/power-chime-play}"
+on_plug="${POWER_CHIME_ON_PLUG:-1}"
+on_unplug="${POWER_CHIME_ON_UNPLUG:-1}"
+
+log() { printf 'power-chimed: %s\n' "$*" >&2; }
+
+# Read with the bash builtin: no fork, no subshell, 4 wakeups a second.
+last=
+read -r last < "$sysfs" 2>/dev/null || { log "cannot read $sysfs, exiting"; exit 1; }
+[[ -n $last ]] || { log "cannot read $sysfs, exiting"; exit 1; }
+log "watching $sysfs (online=$last)"
+
+while :; do
+    sleep "$poll"
+
+    now=
+    read -r now < "$sysfs" 2>/dev/null || continue
+    [[ -n $now ]] || continue
+    [[ $now == "$last" ]] && continue
+
+    # Debounce: the EC can report a transient state for a moment.
+    sleep 0.08
+    confirm=
+    read -r confirm < "$sysfs" 2>/dev/null || continue
+    [[ $confirm == "$now" ]] || continue
+
+    if [[ $now == 1 ]]; then
+        if [[ $on_plug == 1 ]]; then
+            log "power connected -> chime"
+            "$play" connect || log "playback failed"
+        fi
+    else
+        if [[ $on_unplug == 1 ]]; then
+            log "power removed -> chime"
+            "$play" disconnect || log "playback failed"
+        fi
+    fi
+
+    last=$now
+done

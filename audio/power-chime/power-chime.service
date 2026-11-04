@@ -1,0 +1,18 @@
+[Unit]
+Description=Mac-style power chime (charger connect/disconnect)
+Documentation=file://%h/.local/share/power-chime/README.md
+After=pipewire.service wireplumber.service
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/power-chimed
+Restart=always
+RestartSec=3
+
+# Optional overrides:
+#Environment=POWER_CHIME_VOLUME=0.7
+#Environment=POWER_CHIME_ON_UNPLUG=0
+
+[Install]
+WantedBy=default.target
